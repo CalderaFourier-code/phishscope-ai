@@ -1,0 +1,6 @@
+# Liste d'échantillons d'URLs pour audit en lot
+https://paypa1-update-security.top/login.php
+http://аpple.com/verify-account
+http://bit.ly/3x8fQZ
+https://www.google.com
+http://192.168.1.100/admin/login
