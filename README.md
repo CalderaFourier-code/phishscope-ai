@@ -1,4 +1,8 @@
-# 🛡️ PhishScope-AI v3.0 — Console CLI d'Analyse Anti-Phishing, OSINT & Threat Intel
+<p align="center">
+  <img src="banner.png" alt="PhishScope Banner" width="100%">
+</p>
+
+# 🛡️ PhishScope v3.0 — Console CLI d'Analyse Anti-Phishing, OSINT & Threat Intel
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://python.org)
 [![Interface](https://img.shields.io/badge/Interface-100%25%20CLI%20Console-green?logo=gnometerminal)](https://github.com/CalderaFourier-code)
@@ -7,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Author](https://img.shields.io/badge/Auteur-Tohon%20Fourier-brightgreen)](https://github.com/CalderaFourier-code)
 
-**PhishScope-AI v3.0 (SOC Enterprise Edition)** est un moteur d'investigation forensique et de Threat Intelligence 100% en ligne de commande (CLI). Conçu pour les analystes SOC, CERT et les chercheurs en cybersécurité, il dissèque en temps réel les URLs suspectes grâce à une double approche : **analyse heuristique avancée (homographes, leet-squatting, entropie)** et **sondes actives OSINT réseau (résolution DNS, interrogations RDAP de l'âge de domaine, inspection TLS et démasquage automatique des réducteurs d'URL)**.
+**PhishScope v3.0 (SOC Enterprise Edition)** est un moteur d'investigation forensique et de Threat Intelligence 100% en ligne de commande (CLI). Conçu pour les analystes SOC, CERT et les chercheurs en cybersécurité, il dissèque en temps réel les URLs suspectes grâce à une double approche : **analyse heuristique avancée (homographes, leet-squatting, entropie)** et **sondes actives OSINT réseau (résolution DNS, interrogations RDAP de l'âge de domaine, inspection TLS et démasquage automatique des réducteurs d'URL)**.
 
 Conçu sous forme d'**application autonome ultra-portable sans aucune dépendance pip obligatoire** (utilise la bibliothèque standard Python), il s'exécute immédiatement sur n'importe quel système (Linux, Windows, macOS, Kali Linux).
 
@@ -92,7 +96,7 @@ python phishscope.py --demo
 ### Cas 1 : Portail Officiel Authentique (Google Login) — Score : 0/100 (Légitime)
 ```text
 ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-│ RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE-AI v3.0                                            │
+│ RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE v3.0                                               │
 ├────────────────────────────────────────────────────────────────────────────────────────────┤
 │  Cible inspectée : https://accounts.google.com/signin/v2/identifier
 │  Domaine FQDN    : accounts.google.com (Racine : google.com)
@@ -122,7 +126,7 @@ python phishscope.py --demo
 ### Cas 2 : Typosquatting PayPal + TLD Abusif (.top) — Score : 90/100 (Critique)
 ```text
 ┌────────────────────────────────────────────────────────────────────────────────────────────┐
-│ RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE-AI v3.0                                            │
+│ RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE v3.0                                               │
 ├────────────────────────────────────────────────────────────────────────────────────────────┤
 │  Cible inspectée : https://paypa1-update-security.top/login.php
 │  Domaine FQDN    : paypa1-update-security.top (Racine : paypa1-update-security.top)

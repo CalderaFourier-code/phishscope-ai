@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 =============================================================================
-  PHISHSCOPE-AI v3.0 — Console CLI Forensique de Détection de Phishing & OSINT
+  PHISHSCOPE v3.0 — Console CLI Forensique de Détection de Phishing & OSINT
   Auteur  : Tohon Fourier (CalderaFourier-code)
   Version : 3.0.0 (Enterprise SOC Edition)
   Moteur  : Détection d'Homoglyphes, Typosquatting, Usurpation de Marque,
@@ -55,12 +55,12 @@ class Colors:
 
 
 BANNER = f"""{Colors.CYAN}
-  ____  _     _     _     ____                          _    ___ 
- |  _ \\| |__ (_)___| |__ / ___|  ___ ___  _ __   ___   / \\  |_ _|
- | |_) | '_ \\| / __| '_ \\\\___ \\ / __/ _ \\| '_ \\ / _ \\ / _ \\  | | 
- |  __/| | | | \\__ \\ | | |___) | (_| (_) | |_) |  __// ___ \\ | | 
- |_|   |_| |_|_|___/_| |_|____/ \\___\\___/| .__/ \\___/_/   \\_\\___|
-                                         |_|                      
+  ____  _     _     _     ____                          
+ |  _ \| |__ (_)___| |__ / ___|  ___ ___  _ __   ___    
+ | |_) | '_ \| / __| '_ \\\\___ \\ / __/ _ \\| '_ \\ / _ \\   
+ |  __/| | | | \\__ \\ | | |___) | (_| (_) | |_) |  __/   
+ |_|   |_| |_|_|___/_| |_|____/ \\___\\___/| .__/ \\___|   
+                                         |_|            
   {Colors.LIGHT_GREEN}[ Moteur OSINT Anti-Phishing, Détection d'Homographes & Threat Intel v3.0 ]{Colors.RESET}
   {Colors.GRAY}Auteur : Tohon Fourier | GitHub: CalderaFourier-code | SOC Enterprise Edition{Colors.RESET}
 """
@@ -367,7 +367,7 @@ class NetworkOsintProbe:
             url = f"https://rdap.org/domain/{registered_domain}"
             req = urllib.request.Request(
                 url,
-                headers={'User-Agent': 'PhishScope-AI/3.0'}
+                headers={'User-Agent': 'PhishScope/3.0'}
             )
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 data = json.loads(resp.read().decode('utf-8'))
@@ -428,7 +428,7 @@ class NetworkOsintProbe:
             endpoint = f"https://www.virustotal.com/api/v3/urls/{url_id}"
             req = urllib.request.Request(
                 endpoint,
-                headers={"x-apikey": api_key, "User-Agent": "PhishScope-AI/3.0"}
+                headers={"x-apikey": api_key, "User-Agent": "PhishScope/3.0"}
             )
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 payload = json.loads(resp.read().decode())
@@ -1018,7 +1018,7 @@ def display_cli_report(res):
     osint = res.get("osint", {})
 
     print("\n" + f"{Colors.CYAN}┌" + "─" * 92 + "┐" + f"{Colors.RESET}")
-    print(f"{Colors.CYAN}│{Colors.RESET} {Colors.BOLD}{Colors.WHITE}RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE-AI v3.0{Colors.RESET}{' ' * 44}{Colors.CYAN}│{Colors.RESET}")
+    print(f"{Colors.CYAN}│{Colors.RESET} {Colors.BOLD}{Colors.WHITE}RAPPORT D'ANALYSE FORENSIQUE PHISHSCOPE v3.0{Colors.RESET}{' ' * 47}{Colors.CYAN}│{Colors.RESET}")
     print(f"{Colors.CYAN}├" + "─" * 92 + "┤" + f"{Colors.RESET}")
     print(f"{Colors.CYAN}│{Colors.RESET}  Cible inspectée : {Colors.BOLD}{res['normalized_url'][:70]}{Colors.RESET}")
     print(f"{Colors.CYAN}│{Colors.RESET}  Domaine FQDN    : {Colors.CYAN}{res['domain']}{Colors.RESET} (Racine : {Colors.BOLD}{res['registered_domain']}{Colors.RESET})")
@@ -1102,7 +1102,7 @@ def interactive_console():
             cmd = parts[0].lower()
 
             if cmd in ["exit", "quit", "q"]:
-                print(f"\n{Colors.YELLOW}[*] Fermeture de la console PhishScope-AI. Au revoir.{Colors.RESET}")
+                print(f"\n{Colors.YELLOW}[*] Fermeture de la console PhishScope. Au revoir.{Colors.RESET}")
                 break
 
             elif cmd in ["clear", "cls"]:
@@ -1222,7 +1222,7 @@ def run_bulk_scan(filepath):
 # BANC D'ESSAI COMPARATIF (DEMO AVANCÉE)
 # =============================================================================
 def run_demo():
-    print(f"\n{Colors.MAGENTA}{Colors.BOLD}=== BANC D'ESSAI COMPARATIF PHISHSCOPE-AI v3.0 ==={Colors.RESET}\n")
+    print(f"\n{Colors.MAGENTA}{Colors.BOLD}=== BANC D'ESSAI COMPARATIF PHISHSCOPE v3.0 ==={Colors.RESET}\n")
 
     test_cases = [
         ("https://accounts.google.com/signin/v2/identifier", "1. Domaine Officiel Authentique (Google Login - Doit être certifié 0/100)"),
@@ -1250,7 +1250,7 @@ def main():
     print(BANNER)
 
     parser = argparse.ArgumentParser(
-        description="PhishScope-AI v3.0 : Console Forensique d'Analyse Anti-Phishing & OSINT",
+        description="PhishScope v3.0 : Console Forensique d'Analyse Anti-Phishing & OSINT",
         epilog="Exemples :\n  python phishscope.py                                 (Console interactive)\n  python phishscope.py -u https://paypa1-security.top  (Audit direct)\n  python phishscope.py -f urls.txt                     (Audit en lot)\n  python phishscope.py --demo                          (Banc d'essai comparatif)",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
